@@ -1,0 +1,4 @@
+{
+  "script": "browserstack_executor: {\"action\":\"annotate\",\"arguments\":{\"data\":\"Step: When I login with foobar and barfoo\",\"level\":\"info\"}}",
+  "args": []
+}

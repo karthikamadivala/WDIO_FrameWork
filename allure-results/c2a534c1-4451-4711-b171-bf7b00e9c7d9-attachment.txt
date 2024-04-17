@@ -1,0 +1,4 @@
+{
+  "script": "browserstack_executor: {\"action\":\"annotate\",\"arguments\":{\"data\":\"Step: Then I should see a flash message saying Your username is invalid!\",\"level\":\"info\"}}",
+  "args": []
+}

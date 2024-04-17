@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "An element could not be located on the page using the given search parameters.",
+  "stacktrace": "NoSuchElementError: An element could not be located on the page using the given search parameters.\n    at XCUITestDriver.findWebElementOrElements (/nix/store/h83064gqicshqjg2pmw64xcj7rm7aqgw-appium-1.21.0/node_modules/appium-xcuitest-driver/lib/commands/web.js:208:13)\n    at XCUITestDriver.findElOrEls (/nix/store/h83064gqicshqjg2pmw64xcj7rm7aqgw-appium-1.21.0/node_modules/appium-xcuitest-driver/lib/commands/find.js:21:12)\n    at XCUITestDriver.findElOrElsWithProcessing (/nix/store/h83064gqicshqjg2pmw64xcj7rm7aqgw-appium-1.21.0/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)\n    at XCUITestDriver.findElement (/nix/store/h83064gqicshqjg2pmw64xcj7rm7aqgw-appium-1.21.0/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)"
+}

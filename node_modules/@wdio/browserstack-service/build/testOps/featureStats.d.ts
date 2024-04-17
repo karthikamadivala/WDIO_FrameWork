@@ -1,0 +1,45 @@
+import type { FeatureStatsOverview } from '../types.js';
+interface FeatureStatsMap {
+    [groupId: string]: FeatureStats;
+}
+interface JSONConversionSettings {
+    omitGroups?: boolean;
+    onlyGroups?: boolean;
+    nestedGroups?: boolean;
+}
+declare class FeatureStats {
+    private triggeredCount;
+    private sentCount;
+    private failedCount;
+    private groups;
+    mark(status: string, groupId: string): void;
+    triggered(groupId?: string): void;
+    sent(groupId?: string): void;
+    failed(groupId?: string): void;
+    success(groupId?: string): void;
+    createGroup(groupId: string): FeatureStats;
+    getTriggeredCount(): number;
+    getSentCount(): number;
+    getFailedCount(): number;
+    getUsageForGroup(groupId: string): FeatureStats;
+    getOverview(): FeatureStatsOverview;
+    getGroups(): FeatureStatsMap;
+    add(featureStats: FeatureStats): void;
+    toJSON(config?: JSONConversionSettings): {
+        triggeredCount: number;
+        sentCount: number;
+        failedCount: number;
+    } | {
+        groups: Record<string, FeatureStatsOverview>;
+        triggeredCount: number;
+        sentCount: number;
+        failedCount: number;
+    } | {
+        [x: string]: FeatureStatsOverview;
+    } | {
+        groups: Record<string, FeatureStatsOverview>;
+    };
+    static fromJSON(json: any): FeatureStats;
+}
+export default FeatureStats;
+//# sourceMappingURL=featureStats.d.ts.map

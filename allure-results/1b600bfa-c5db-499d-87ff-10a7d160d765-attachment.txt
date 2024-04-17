@@ -1,0 +1,6 @@
+{
+  "sessionId": "79f911f39a06750ccd84c61548000985144be2f1",
+  "capabilities": {
+    "sessionId": "79f911f39a06750ccd84c61548000985144be2f1"
+  }
+}

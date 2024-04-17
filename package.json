@@ -1,0 +1,24 @@
+{
+  "name": "add",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.36.0",
+    "@wdio/browserstack-service": "^8.36.0",
+    "@wdio/cli": "^8.36.0",
+    "@wdio/cucumber-framework": "^8.36.0",
+    "@wdio/dot-reporter": "^8.36.0",
+    "@wdio/junit-reporter": "^8.36.0",
+    "@wdio/local-runner": "^8.36.0",
+    "@wdio/spec-reporter": "^8.36.0",
+    "@wdio/visual-service": "^4.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "wdio-wait-for": "^3.0.11"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts",
+    "wdiob": "wdio run ./wdio.conf.browserstack.ts",
+    "wdioj": "wdio run ./wdio.conf.Jenkin.ts",
+    "wtest": "wdio run ./wtest.ts"
+  }
+}
