@@ -20,5 +20,8 @@
     "wdiob": "wdio run ./wdio.conf.browserstack.ts",
     "wdioj": "wdio run ./wdio.conf.Jenkin.ts",
     "wtest": "wdio run ./wtest.ts"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.28.0"
   }
 }

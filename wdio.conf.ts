@@ -30,7 +30,7 @@ export const config: Options.Testrunner = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./uiAutomation/features/**/*.feature"],
+  specs: ["./uiAutomation/features/**/login.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -178,7 +178,7 @@ export const config: Options.Testrunner = {
    * @param {object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
+  // onPrepare: async function (config, capabilities) {
   // },
   /**
    * Gets executed before a worker process is spawned and can be used to initialize specific service
@@ -189,7 +189,8 @@ export const config: Options.Testrunner = {
    * @param  {object} args     object that will be merged with the main configuration once worker is initialized
    * @param  {object} execArgv list of string arguments passed to the worker process
    */
-  // onWorkerStart: function (cid, caps, specs, args, execArgv) {
+  // onWorkerStart: async function (cid, caps, specs, args, execArgv) {
+  //   await browser.maximizeWindow;
   // },
   /**
    * Gets executed just after a worker process has exited.
@@ -217,7 +218,7 @@ export const config: Options.Testrunner = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
+  // before: async function (capabilities, specs) {
   // },
   /**
    * Runs before a WebdriverIO command gets executed.

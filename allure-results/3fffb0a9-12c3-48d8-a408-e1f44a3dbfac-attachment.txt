@@ -1,4 +1,0 @@
-{
-  "script": "browserstack_executor: {\"action\":\"annotate\",\"arguments\":{\"data\":\"Scenario: As a user, I can log into the secure area\",\"level\":\"info\"}}",
-  "args": []
-}

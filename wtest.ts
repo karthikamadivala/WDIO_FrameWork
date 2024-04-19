@@ -1,4 +1,8 @@
 import type { Options } from "@wdio/types";
+import allureReporter from "@wdio/allure-reporter";
+import { browser } from "@wdio/globals";
+import ConfigUtility from "./configuration/configUtility.ts";
+import configUtility from "./configuration/configUtility.ts";
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -30,7 +34,7 @@ export const config: Options.Testrunner = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./uiAutomation/features/**/login.feature"],
+  specs: ["./uiAutomation/features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -51,7 +55,7 @@ export const config: Options.Testrunner = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 2,
+  maxInstances: 4,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -59,11 +63,12 @@ export const config: Options.Testrunner = {
   //
   capabilities: [
     {
-      browserName: "chrome",
+      myChromeBrowser0: {
+        capabilities: {
+          browserName: "chrome",
+        },
+      },
     },
-    // {
-    //   browserName: "edge",
-    // },
   ],
   //
   // ===================
@@ -112,7 +117,8 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["visual"],
+  // services: ["visual"],
+  services: ["selenium-stanalone"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -144,7 +150,12 @@ export const config: Options.Testrunner = {
       },
     ],
     "spec",
-    ["allure", { outputDir: "allure-results" }],
+    [
+      "allure",
+      {
+        outputDir: "allure-results",
+      },
+    ],
   ],
 
   // If you are using Cucumber you need to specify the location of your step definitions.
@@ -275,6 +286,10 @@ export const config: Options.Testrunner = {
    */
   // afterStep: function (step, scenario, result, context) {
   // },
+
+  afterSuite: async function (result) {
+    await ConfigUtility.takeScreenShotForFailureCase(result);
+  },
   /**
    *
    * Runs after a Cucumber Scenario.
@@ -330,8 +345,10 @@ export const config: Options.Testrunner = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete: async function (exitCode, config, capabilities, results) {
+    await configUtility.generateAllureReport();
+  },
+
   /**
    * Gets executed when a refresh happens.
    * @param {string} oldSessionId session ID of the old session

@@ -4,8 +4,7 @@ export const config: Options.Testrunner = {
   // ====================
   // Runner Configuration
   // ====================
-  key: "cfY2QB1pUvPyvpRZH31U",
-  user: "karthikmadival1",
+
   //Set your browserstack username and key ere
   // user: process.env.BROWSERSTACK_USERNAME || "YOUR_USERNAME",
   // key: process.env.BROWSERSTACK_ACCESS_KEY || "YOUR_ACCESS_KEY",
